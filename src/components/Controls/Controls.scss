@@ -1,0 +1,9 @@
+@use '../../styles/partials/variables' as *;
+
+.controls {
+    display: grid;
+    height: 100%;
+    border-radius: 0.5rem;
+    background-color: $color-background3;
+    color: $color-text2;
+}

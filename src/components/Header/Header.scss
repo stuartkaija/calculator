@@ -1,4 +1,14 @@
+@use '../../styles/partials/variables' as *;
+
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    margin-bottom: 0.5rem;
+
+    &__title {
+        color: $color-text2;
+        margin: 0;
+    }
 }
