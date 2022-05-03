@@ -1,9 +1,13 @@
 import './App.scss';
 
+//@ts-ignore
+import Header from './components/Header/Header.tsx';
+
 function App() {
 	return (
 		<div className="App">
-			<h1>calculator</h1>
+			<Header />
+
 		</div>
 	);
 }
