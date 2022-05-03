@@ -1,0 +1,14 @@
+@use '../../styles/partials/variables' as *;
+
+.display {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 4rem;
+    border-radius: 0.5rem;
+    padding-right: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: $color-background3;
+    color: $color-text2;
+
+}
