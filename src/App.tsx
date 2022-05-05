@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import './App.scss';
 
 //@ts-ignore
@@ -8,10 +9,13 @@ import Display from './components/Display/Display.tsx';
 import Controls from './components/Controls/Controls.tsx';
 
 function App() {
+
+	const [display, setDisplay] = useState(0);
+
 	return (
 		<div className="App">
 			<Header />
-			<Display />
+			<Display display={display} />
 			<Controls />
 		</div>
 	);
