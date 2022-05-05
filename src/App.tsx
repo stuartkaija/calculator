@@ -10,56 +10,74 @@ import Controls from './components/Controls/Controls.tsx';
 import { stringify } from 'querystring';
 
 function App() {
-
+	
+	// state for what is displayed on the 'screen'
 	const [display, setDisplay] = useState('0');
 
-	const [equation, setEquation] = useState(null)
+	// what the user inputs, with this we can update the display
+	const [input, setInput] = useState('')
+
+	const [operator, setOperator] = useState('');
+
+	const [inputTwo, setInputTwo] = useState('');
 	
 	// more state to hold display number once user clicks operator button
 	// such that the second number they start clicking in appears in display
 
 	// display handler
 	const handleNumber = (number) => {
-
-		// check if equation is truthy, if yes, that means user has clicked an operator so display must reset to 0
-		// if (equation) {
-		// 	setDisplay('0')
-		// }
-
 		// check if display contains a decimel
 		if (number === '.' && display.includes('.')) {
+			return;
+		}
+
+		// check if user is punching in second number
+		if (input && operator) {
+			setDisplay(number);
+			console.log('number: ' + number);
+			// setDisplay(prevDisplay => prevDisplay + number);
+			setInputTwo(prevNumber => prevNumber + number);
 			return;
 		}
 		
 		if (display === '0') {
 			setDisplay(number);
+			setInput(number)
 		} else {
 			setDisplay(prevDisplay => prevDisplay + number)
+			setInput(prevNumber => prevNumber + number)
 		}
-	};
 
-	// reset handler
-	const handleReset = () => {
-		setDisplay('0');
-		setEquation(null)
 	};
 
 	// mathematical function handler
 	const handleOperator = (operator) => {
 
 		// check if display and equation have numbers, i.e. user is doing multiple operations
-
+		
+		setOperator(operator);
 
 		// check if display === 0, if so ignore
-		if (display === '0') {
-			return
-		}
-		// setEquation equal to display
-		setEquation(display);
-		console.log(equation);
-		setDisplay('0')
+		// if (display === '0') {
+		// 	return
+		// }
+
 	};
 
+
+	// handle equals
+	const handleEquals = () => {
+		if (inputTwo) {
+			// convert display and equation to numbers
+			const equals = parseInt(inputTwo) + parseInt(display)
+
+			setDisplay(equals.toString())
+
+			// check what operator was (may need more state for this?)
+		}
+	}
+
+	// delete handler
 	const handleDelete = () => {
 		if (display.length === 1) {
 			setDisplay('0')
@@ -68,17 +86,13 @@ function App() {
 		setDisplay(prevDisplay => prevDisplay.slice(0, -1));
 	}
 
-	// handleEquation function for equals button? 
-	const handleEquals = () => {
-		if (equation) {
-			// convert display and equation to numbers
-			const equals = parseInt(equation) + parseInt(display)
-
-			setDisplay(equals.toString())
-
-			// check what operator was (may need more state for this?)
-		}
-	}
+	// reset handler
+	const handleReset = () => {
+		setDisplay('0');
+		setInput('');
+		setOperator('');
+		setInputTwo(null);
+	};
 
 	return (
 		<div className="App">
