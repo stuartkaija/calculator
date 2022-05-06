@@ -2,8 +2,14 @@
 
 .App {
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	height: 100vh;
 	background-color: $color-background1;
-	padding: 1rem;
+}
+
+.calculator {
+	border: 1px dotted red;
+	width: 20rem;
+	height: 15rem;
 }
