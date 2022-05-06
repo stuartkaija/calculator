@@ -26,20 +26,28 @@ function App() {
 
 	// display handler
 	const handleNumber = (number) => {
+		
+		// check if user is punching in second number
+		if (input && operator) {
+			if (number === '.' && display.includes('.')) {
+				return;
+			}
+
+			if (inputTwo.length > 0) {
+				setDisplay(prevDisplay => prevDisplay + number)
+				setInputTwo(prevNumber => prevNumber + number)
+				return;
+			}
+			setDisplay(number);
+			setInputTwo(prevNumber => prevNumber + number);
+			return;
+		}
+		
 		// check if display contains a decimel
 		if (number === '.' && display.includes('.')) {
 			return;
 		}
 
-		// check if user is punching in second number
-		if (input && operator) {
-			setDisplay(number);
-			console.log('number: ' + number);
-			// setDisplay(prevDisplay => prevDisplay + number);
-			setInputTwo(prevNumber => prevNumber + number);
-			return;
-		}
-		
 		if (display === '0') {
 			setDisplay(number);
 			setInput(number)
@@ -53,7 +61,7 @@ function App() {
 	// mathematical function handler
 	const handleOperator = (operator) => {
 
-		// check if display and equation have numbers, i.e. user is doing multiple operations
+		// check if input and inputTwo are truthy, if so this should also calculate first equation
 		
 		setOperator(operator);
 
@@ -64,6 +72,8 @@ function App() {
 
 	};
 
+	console.log(parseFloat(typeof input))
+	console.log(parseFloat(typeof inputTwo))
 
 	// handle equals
 	const handleEquals = () => {
@@ -73,6 +83,7 @@ function App() {
 		if (inputTwo) {
 			if (operator === '+') {
 				equals = parseInt(input) + parseInt(inputTwo)
+				// equals = Math.round((parseFloat(input) + parseFloat(input) * 100)/100)
 			}
 			if (operator === '-') {
 				equals = parseInt(input) - parseInt(inputTwo)
@@ -85,17 +96,22 @@ function App() {
 			}
 		}
 
-		setDisplay(equals.toString())
+		setDisplay(equals.toString());
+		setInput(equals.toString());
+		setOperator('');
+		setInputTwo('');
 	}
 
 	// delete handler
 	const handleDelete = () => {
 		if (display.length === 1) {
-			setDisplay('0')
-			return
+			setDisplay('0');
+			setInput('');
+			return;
 		}
 		setDisplay(prevDisplay => prevDisplay.slice(0, -1));
-	}
+		setInput(prevInput => prevInput.slice(0, -1));
+	};
 
 	// reset handler
 	const handleReset = () => {
