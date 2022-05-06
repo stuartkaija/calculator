@@ -67,14 +67,25 @@ function App() {
 
 	// handle equals
 	const handleEquals = () => {
+
+		let equals;
+
 		if (inputTwo) {
-			// convert display and equation to numbers
-			const equals = parseInt(inputTwo) + parseInt(display)
-
-			setDisplay(equals.toString())
-
-			// check what operator was (may need more state for this?)
+			if (operator === '+') {
+				equals = parseInt(input) + parseInt(inputTwo)
+			}
+			if (operator === '-') {
+				equals = parseInt(input) - parseInt(inputTwo)
+			}
+			if (operator === '/') {
+				equals = parseInt(input)/parseInt(inputTwo)
+			}
+			if (operator === 'x') {
+				equals = parseInt(input)*parseInt(inputTwo)
+			}
 		}
+
+		setDisplay(equals.toString())
 	}
 
 	// delete handler
