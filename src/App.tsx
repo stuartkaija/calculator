@@ -123,15 +123,17 @@ function App() {
 
 	return (
 		<div className="App">
-			<Header />
-			<Display display={display} />
-			<Controls 
-				handleNumber={handleNumber}
-				handleOperator={handleOperator}
-				handleEquals={handleEquals}
-				handleDelete={handleDelete}
-				handleReset={handleReset}
-			/>
+			<div className='calculator'>
+				<Header />
+				<Display display={display} />
+				<Controls 
+					handleNumber={handleNumber}
+					handleOperator={handleOperator}
+					handleEquals={handleEquals}
+					handleDelete={handleDelete}
+					handleReset={handleReset}
+				/>
+			</div>
 		</div>
 	);
 }

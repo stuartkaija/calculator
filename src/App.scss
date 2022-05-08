@@ -1,9 +1,20 @@
 @use './styles/partials/variables' as *;
+@use './styles/partials/mixins' as *;
 
 .App {
 	display: flex;
-	flex-direction: column;
-	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
 	background-color: $color-background1;
+}
+
+.calculator {
+	border: 1px dotted red;
+	height: 100%;
 	padding: 1rem;
+
+	@include desktop {
+		width: 35rem;
+	}
 }
