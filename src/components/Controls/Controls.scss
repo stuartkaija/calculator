@@ -5,6 +5,7 @@
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: repeat(4, 1fr);
     height: 75%;
+    // width: 22rem;
     border-radius: 0.5rem;
     background-color: $color-background3;
     color: $color-text2;
@@ -25,7 +26,8 @@
             transition: border-top 0.05s ease-in-out, border-bottom 0.05s ease-in-out;
         }
 
-        &--special1 {
+        &--delete {
+            grid-column: auto;
             background-color: $color-key1;
             border-bottom: 0.25rem solid $color-key2;
             color: $color-text2;
@@ -33,18 +35,29 @@
 
             &:active {
                 border-bottom: none;
-                transition: border-bottom 0.05s ease-in-out;
             }
         }
 
-        &--special2 {
+        &--reset {
+            grid-column: 1 / span 2;
+            background-color: $color-key1;
+            border-bottom: 0.25rem solid $color-key2;
+            color: $color-text2;
+            font-size: 1.25rem;
+
+            &:active {
+                border-bottom: none;
+            }
+        }
+
+        &--equals {
+            grid-column: 3 / span 2;
             background-color: $color-key3;
             border-bottom: 0.25rem solid $color-key4;
             color: $color-text2;
 
             &:active {
                 border-bottom: none;
-                transition: border-bottom 0.05s ease-in-out;
             }
         }
     }
