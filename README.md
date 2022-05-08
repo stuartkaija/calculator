@@ -1,3 +1,3 @@
-# Simple calculator application
+# calculator application
 
-Built with React, TypeScript and Sass
+Built with React.
