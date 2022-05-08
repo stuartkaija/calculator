@@ -7,37 +7,24 @@ import Header from './components/Header/Header.tsx';
 import Display from './components/Display/Display.tsx';
 //@ts-ignore
 import Controls from './components/Controls/Controls.tsx';
-import { stringify } from 'querystring';
 
 function App() {
 	
-	// state for what is displayed on the 'screen'
 	const [display, setDisplay] = useState('0');
-
-	// what the user inputs, with this we can update the display
 	const [input, setInput] = useState('')
-
 	const [operator, setOperator] = useState('');
-
 	const [inputTwo, setInputTwo] = useState('');
-	
-	// more state to hold display number once user clicks operator button
-	// such that the second number they start clicking in appears in display
 	
 	// rounding algorithm to deal with floating point numbers
 	function rounder(num) {
 		return Math.round(num * 1000000)/1000000
 	}
 
-	// display handler
+	// handles number buttons
 	const handleNumber = (number) => {
-		
 		// check if user is punching in second number
 		if (input && operator) {
-			// if (number === '.' && display.includes('.')) {
-			// 	return;
-			// }
-
+			// ensure only one decimal allowed
 			if (inputTwo.includes('.') && number === '.') {
 				return;
 			}
@@ -64,39 +51,31 @@ function App() {
 			setDisplay(prevDisplay => prevDisplay + number)
 			setInput(prevNumber => prevNumber + number)
 		}
-
 	};
 
-	// mathematical function handler
-	const handleOperator = (operator) => {
-
-		// check if input and inputTwo are truthy, if so this should also calculate first equation
-		
+	// handles mathematical operator buttons
+	const handleOperator = (operator) => {		
 		setOperator(operator);
-
-		// check if display === 0, if so ignore
-		// if (display === '0') {
-		// 	return
-		// }
-
 	};
 
-	// handle equals
+	// handles equals button
 	const handleEquals = () => {
 		let equals;
 
 		if (inputTwo) {
-			if (operator === '+') {
-				equals = rounder(parseFloat(input) + parseFloat(inputTwo))
-			}
-			if (operator === '-') {
-				equals = rounder(parseFloat(input) - parseFloat(inputTwo))
-			}
-			if (operator === '/') {
-				equals = rounder(parseFloat(input) / parseFloat(inputTwo))
-			}
-			if (operator === 'x') {
-				equals = rounder(parseFloat(input) * parseFloat(inputTwo))
+			switch (operator) {
+				case '+':
+					equals = rounder(parseFloat(input) + parseFloat(inputTwo))
+					break;
+				case '-':
+					equals = rounder(parseFloat(input) - parseFloat(inputTwo))
+					break;				
+				case '/':
+					equals = rounder(parseFloat(input) / parseFloat(inputTwo))
+					break;
+				case 'x':
+					equals = rounder(parseFloat(input) * parseFloat(inputTwo))
+					break;
 			}
 		}
 
@@ -106,7 +85,7 @@ function App() {
 		setInputTwo('');
 	}
 
-	// delete handler
+	// handles delete button
 	const handleDelete = () => {
 		if (display.length === 1) {
 			setDisplay('0');
@@ -117,7 +96,7 @@ function App() {
 		setInput(prevInput => prevInput.slice(0, -1));
 	};
 
-	// reset handler
+	// handles reset button
 	const handleReset = () => {
 		setDisplay('0');
 		setInput('');
