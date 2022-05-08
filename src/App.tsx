@@ -72,9 +72,6 @@ function App() {
 
 	};
 
-	console.log(parseFloat(typeof input))
-	console.log(parseFloat(typeof inputTwo))
-
 	// handle equals
 	const handleEquals = () => {
 
@@ -82,17 +79,16 @@ function App() {
 
 		if (inputTwo) {
 			if (operator === '+') {
-				equals = parseInt(input) + parseInt(inputTwo)
-				// equals = Math.round((parseFloat(input) + parseFloat(input) * 100)/100)
+				equals = parseFloat(input) + parseFloat(inputTwo);
 			}
 			if (operator === '-') {
-				equals = parseInt(input) - parseInt(inputTwo)
+				equals = parseFloat(input) - parseFloat(inputTwo)
 			}
 			if (operator === '/') {
-				equals = parseInt(input)/parseInt(inputTwo)
+				equals = parseFloat(input) / parseFloat(inputTwo)
 			}
 			if (operator === 'x') {
-				equals = parseInt(input)*parseInt(inputTwo)
+				equals = parseFloat(input) * parseFloat(inputTwo)
 			}
 		}
 
