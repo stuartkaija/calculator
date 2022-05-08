@@ -1,7 +1,7 @@
 import React from 'react';
 import './Controls.scss';
 
-export default function Controls({handleNumber, handleReset, handleOperator, handleDelete, handleEquals}) {
+export default function Controls({handleNumber, handleOperator, handleEquals, handleDelete, handleReset}) {
 
     return (
         <div className='controls'>
