@@ -34,7 +34,11 @@ function App() {
 		
 		// check if user is punching in second number
 		if (input && operator) {
-			if (number === '.' && display.includes('.')) {
+			// if (number === '.' && display.includes('.')) {
+			// 	return;
+			// }
+
+			if (inputTwo.includes('.') && number === '.') {
 				return;
 			}
 
