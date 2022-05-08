@@ -23,6 +23,11 @@ function App() {
 	
 	// more state to hold display number once user clicks operator button
 	// such that the second number they start clicking in appears in display
+	
+	// rounding algorithm to deal with floating point numbers
+	function rounder(num) {
+		return Math.round(num * 1000000)/1000000
+	}
 
 	// display handler
 	const handleNumber = (number) => {
@@ -72,27 +77,22 @@ function App() {
 
 	};
 
-	console.log(parseFloat(typeof input))
-	console.log(parseFloat(typeof inputTwo))
-
 	// handle equals
 	const handleEquals = () => {
-
 		let equals;
 
 		if (inputTwo) {
 			if (operator === '+') {
-				equals = parseInt(input) + parseInt(inputTwo)
-				// equals = Math.round((parseFloat(input) + parseFloat(input) * 100)/100)
+				equals = rounder(parseFloat(input) + parseFloat(inputTwo))
 			}
 			if (operator === '-') {
-				equals = parseInt(input) - parseInt(inputTwo)
+				equals = rounder(parseFloat(input) - parseFloat(inputTwo))
 			}
 			if (operator === '/') {
-				equals = parseInt(input)/parseInt(inputTwo)
+				equals = rounder(parseFloat(input) / parseFloat(inputTwo))
 			}
 			if (operator === 'x') {
-				equals = parseInt(input)*parseInt(inputTwo)
+				equals = rounder(parseFloat(input) * parseFloat(inputTwo))
 			}
 		}
 
