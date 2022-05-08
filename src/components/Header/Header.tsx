@@ -1,10 +1,10 @@
 import React from 'react';
 import './Header.scss';
 
-export default function Header() {
+const Header: React.FC = () => {
     return (
         <header className='header'>
-            <h1 className='header__title'>calc</h1>
+            <h1 className='header__title'>calculator</h1>
             <label className='header__switch'>
                 <input className='header__input-hidden' type="checkbox" />
                 <span className='header__slider'></span>
@@ -12,3 +12,5 @@ export default function Header() {
         </header>
     )
 }
+
+export default Header;

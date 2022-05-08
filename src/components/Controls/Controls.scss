@@ -4,8 +4,8 @@
     display: grid;
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: repeat(4, 1fr);
+    padding: 0.5rem;
     height: 75%;
-    // width: 22rem;
     border-radius: 0.5rem;
     background-color: $color-background3;
     color: $color-text2;
@@ -15,15 +15,13 @@
         background-color: $color-key5;
         border: none;
         border-bottom: 0.25rem solid $color-key6;
-        margin: 0.25rem;
+        margin: 0.5rem 0.25rem;
         font-size: 2rem;
         font-weight: bold;
         color: $color-text1;
-        transition: border-bottom 0.05s ease-in-out;
 
         &:active {
-            border-bottom: none;
-            transition: border-top 0.05s ease-in-out, border-bottom 0.05s ease-in-out;
+            background-color: $color-key6;
         }
 
         &--delete {
@@ -34,7 +32,7 @@
             font-size: 1.25rem;
 
             &:active {
-                border-bottom: none;
+                background-color: $color-key2;
             }
         }
 
@@ -46,7 +44,7 @@
             font-size: 1.25rem;
 
             &:active {
-                border-bottom: none;
+                background-color: $color-key2;
             }
         }
 
