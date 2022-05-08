@@ -15,15 +15,37 @@
         border: none;
         border-bottom: 0.25rem solid $color-key6;
         margin: 0.25rem;
-        height: 4rem;
-        width: 4rem;
-        font-size: 1.5rem;
+        font-size: 2rem;
         font-weight: bold;
         color: $color-text1;
+        transition: border-bottom 0.05s ease-in-out;
 
         &:active {
             border-bottom: none;
-            border-top: 0.1rem solid $color-key6;
+            transition: border-top 0.05s ease-in-out, border-bottom 0.05s ease-in-out;
+        }
+
+        &--special1 {
+            background-color: $color-key1;
+            border-bottom: 0.25rem solid $color-key2;
+            color: $color-text2;
+            font-size: 1.25rem;
+
+            &:active {
+                border-bottom: none;
+                transition: border-bottom 0.05s ease-in-out;
+            }
+        }
+
+        &--special2 {
+            background-color: $color-key3;
+            border-bottom: 0.25rem solid $color-key4;
+            color: $color-text2;
+
+            &:active {
+                border-bottom: none;
+                transition: border-bottom 0.05s ease-in-out;
+            }
         }
     }
 }
