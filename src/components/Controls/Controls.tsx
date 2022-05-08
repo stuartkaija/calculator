@@ -8,7 +8,7 @@ export default function Controls({handleNumber, handleOperator, handleEquals, ha
             <button className='controls__button' onClick={() => {handleNumber('7')}}>7</button>
             <button className='controls__button' onClick={() => {handleNumber('8')}}>8</button>
             <button className='controls__button' onClick={() => {handleNumber('9')}}>9</button>
-            <button className='controls__button controls__button--special1' onClick={() => {handleDelete()}}>DEL</button>
+            <button className='controls__button controls__button--delete' onClick={() => {handleDelete()}}>DEL</button>
             <button className='controls__button' onClick={() => {handleNumber('4')}}>4</button>
             <button className='controls__button' onClick={() => {handleNumber('5')}}>5</button>
             <button className='controls__button' onClick={() => {handleNumber('6')}}>6</button>
@@ -21,8 +21,8 @@ export default function Controls({handleNumber, handleOperator, handleEquals, ha
             <button className='controls__button' onClick={() => {handleNumber('0')}}>0</button>
             <button className='controls__button' onClick={() => {handleOperator('/')}}>/</button>
             <button className='controls__button' onClick={() => {handleOperator('x')}}>x</button>
-            <button className='controls__button controls__button--special1' onClick={() => {handleReset()}}>RESET</button>
-            <button className='controls__button controls__button--special2' onClick={() => {handleEquals()}}>=</button>
+            <button className='controls__button controls__button--reset' onClick={() => {handleReset()}}>RESET</button>
+            <button className='controls__button controls__button--equals' onClick={() => {handleEquals()}}>=</button>
         </div>
     )
 }
