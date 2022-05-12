@@ -7,7 +7,7 @@
     padding: 0.5rem;
     height: 75%;
     border-radius: 0.5rem;
-    background-color: $color-background3;
+    background-color: $color-background2;
     color: $color-text2;
 
     &__button {
@@ -22,6 +22,8 @@
 
         &:active {
             background-color: $color-key6;
+            border-bottom: none;
+
         }
 
         &--delete {
@@ -33,6 +35,8 @@
 
             &:active {
                 background-color: $color-key2;
+                border-bottom: none;
+
             }
         }
 
@@ -45,6 +49,7 @@
 
             &:active {
                 background-color: $color-key2;
+                border-bottom: none;
             }
         }
 
@@ -55,6 +60,7 @@
             color: $color-text2;
 
             &:active {
+                background-color: $color-key4;
                 border-bottom: none;
             }
         }

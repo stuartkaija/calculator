@@ -7,7 +7,7 @@ import './App.scss';
 function App() {
 	
 	const [display, setDisplay] = useState('0');
-	const [input, setInput] = useState('')
+	const [input, setInput] = useState('');
 	const [operator, setOperator] = useState('');
 	const [inputTwo, setInputTwo] = useState('');
 	
@@ -18,7 +18,7 @@ function App() {
 
 	// handles number buttons
 	const handleNumber = (number) => {
-		// check if user is punching in second number
+		// check if user is inputting second number
 		if (input && operator) {
 			// ensure only one decimal allowed
 			if (inputTwo.includes('.') && number === '.') {
@@ -35,7 +35,7 @@ function App() {
 			return;
 		}
 		
-		// check if display contains a decimel
+		// ensure only one decimal allowed
 		if (number === '.' && display.includes('.')) {
 			return;
 		}
@@ -49,12 +49,12 @@ function App() {
 		}
 	};
 
-	// handles mathematical operator buttons
+	// mathematical operator buttons
 	const handleOperator = (operator) => {		
 		setOperator(operator);
 	};
 
-	// handles equals button
+	// equals button
 	const handleEquals = () => {
 		let equals;
 
@@ -81,7 +81,7 @@ function App() {
 		setInputTwo('');
 	}
 
-	// handles delete button
+	// delete button
 	const handleDelete = () => {
 		if (display.length === 1) {
 			setDisplay('0');
@@ -92,7 +92,7 @@ function App() {
 		setInput(prevInput => prevInput.slice(0, -1));
 	};
 
-	// handles reset button
+	// reset button
 	const handleReset = () => {
 		setDisplay('0');
 		setInput('');
