@@ -1,0 +1,23 @@
+.footer {
+    text-align: center;
+
+    &__icon {
+        max-height: 2rem;
+        margin: 0rem 0.5rem 1rem;
+        filter: grayscale(100%) brightness(100%);
+
+        &:hover {
+            filter: opacity(40%);
+        }
+
+        &--LI {
+            max-height: 2rem;
+            margin: 0rem 0.5rem 1rem;
+            filter: brightness(0) invert(1);
+
+            &:hover {
+                filter: grayscale(100%) brightness(60%);
+            }
+        }
+    }
+}
