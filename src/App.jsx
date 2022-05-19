@@ -17,6 +17,70 @@ function App() {
 		return Math.round(num * 1000000)/1000000
 	}
 
+	// handle key inputs
+	const handleKeyDown = (event) => {
+		console.log(event);
+		switch (event.key) {
+			case '1':
+				handleNumber('1')
+				break;
+			case '2':
+				handleNumber('2')
+				break;
+			case '3':
+				handleNumber('3')
+				break;
+			case '4':
+				handleNumber('4')
+				break;
+			case '5':
+				handleNumber('5')
+				break;
+			case '6':
+				handleNumber('6')
+				break;
+			case '7':
+				handleNumber('7')
+				break;
+			case '8':
+				handleNumber('8')
+				break;
+			case '9':
+				handleNumber('9')
+				break;
+			case '0':
+				handleNumber('0')
+				break;
+			case '.':
+				handleNumber('.')
+				break;
+			case '+':
+				handleOperator('+')
+				break;
+			case '-':
+				handleOperator('-')
+				break;
+			case '/':
+				handleOperator('/')
+				break;
+			case 'x':
+				handleOperator('x')
+				break;
+			case '*':
+				handleOperator('x')
+				break;
+			case 'Enter':
+				handleEquals()
+				break;
+			case 'Backspace':
+				handleDelete()
+				break;
+			case 'Escape':
+				handleReset()
+				break;
+		}
+    }
+
 	// handles number buttons
 	const handleNumber = (number) => {
 		// check if user is inputting second number
@@ -74,7 +138,7 @@ function App() {
 					equals = rounder(parseFloat(input) * parseFloat(inputTwo))
 					break;
 			}
-		}
+		} else return;
 
 		setDisplay(equals.toString());
 		setInput(equals.toString());
@@ -102,7 +166,7 @@ function App() {
 	};
 
 	return (
-		<div className="App">
+		<div className="App" tabIndex={-1} onKeyDown={(event) => {handleKeyDown(event)}}>
 			<div className='calculator'>
 				<Header />
 				<Display display={display} />
