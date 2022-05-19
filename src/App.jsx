@@ -19,7 +19,6 @@ function App() {
 
 	// handle key inputs
 	const handleKeyDown = (event) => {
-		console.log(event);
 		switch (event.key) {
 			case '1':
 				handleNumber('1')
