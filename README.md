@@ -8,7 +8,6 @@ I built this project to practice utilizing CSS Grid, and have some fun with prog
 
 ## Next Steps
 
- - event listeners for number key inputs
  - light/dark toggle
 
 ## Acknowledgements

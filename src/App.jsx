@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Header from './components/Header/Header.jsx';
 import Display from './components/Display/Display.jsx';
 import Controls from './components/Controls/Controls.jsx';
-import Footer from './components/Footer/Footer.jsx';
 import './App.scss';
 
 function App() {
@@ -177,7 +176,6 @@ function App() {
 					handleReset={handleReset}
 				/>
 			</div>
-			<Footer/>
 		</div>
 	);
 }
