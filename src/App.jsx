@@ -76,6 +76,8 @@ function App() {
 			case 'Escape':
 				handleReset()
 				break;
+			default:
+				break;
 		}
     }
 
@@ -134,6 +136,8 @@ function App() {
 					break;
 				case 'x':
 					equals = rounder(parseFloat(input) * parseFloat(inputTwo))
+					break;
+				default:
 					break;
 			}
 		} else return;
